@@ -22,7 +22,7 @@ options:
 '''
 
 EXAMPLES = '''
-# Say hello
+# Upload a config file
 - gist: src=/etc/pacman.conf public=false
 '''
 
