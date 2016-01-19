@@ -1,0 +1,7 @@
+---
+- hosts: 127.0.0.1
+  sudo: True
+  tasks:
+    - timesync:
+    - print_params: name=xavi twitter=@xavi_xsb github=xsb
+    - gist: src=hello_ansible.md

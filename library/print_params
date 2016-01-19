@@ -1,0 +1,3 @@
+#!/bin/sh
+# outputs its own input params
+jq -R 'split(" ") | map(split("=") | {key: .[0], value: .[1]}) | from_entries' $1
