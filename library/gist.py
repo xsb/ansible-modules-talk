@@ -61,19 +61,13 @@ def main():
     f = open(os.path.expanduser(src))
     content = f.read()
 
-    result = {}
-    result['changed'] = False
-    result['filename'] = filename
-
     try:
         response = copy_to_gist(public, filename, content)
-        j = json.load(response)
-        result['url'] = j['html_url']
-        result['changed'] = True
     except Exception as e:
         module.fail_json(msg=str(e), changed=False)
 
-    module.exit_json(**result)
+    j = json.load(response)
+    module.exit_json(changed=True, filename=filename, url=j['html_url'])
 
 # import module snippets
 from ansible.module_utils.basic import *
